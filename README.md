@@ -50,28 +50,6 @@ Weighted Brier = 0.3 × @24h + 0.4 × @48h + 0.3 × @72h
 | RSF | 0.9423 | 0.0143 | 0.9727 | 0.9623 |
 | **Ensemble** | **0.9435** | **0.0156** | **0.9722** | **0.9632** |
 
-## Project Structure
-```
-├── notebooks/
-│   ├── 01_lasso_cox_baseline.ipynb
-│   ├── 02_random_survival_forest.ipynb
-│   └── 03_ensemble.ipynb
-├── scripts/
-│   └── ensemble_oof_score.py
-├── reports/
-│   ├── final_report.pdf
-│   └── presentation.pptx
-└── README.md
-```
-
-## Requirements
-```
-scikit-survival
-lifelines
-scikit-learn
-pandas
-numpy
-```
 
 ## Team
 | Name | Student ID |
