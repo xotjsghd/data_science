@@ -59,3 +59,5 @@ Weighted Brier = 0.3 × @24h + 0.4 × @48h + 0.3 × @72h
 | 손충기 | 2024100120 |
 
 2026 Spring Semester — Data Science Project, Team 22
+
+- Data available at: https://www.kaggle.com/competitions/WiDSWorldWide_GlobalDathon26/data
