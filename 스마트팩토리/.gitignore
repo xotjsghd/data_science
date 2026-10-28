@@ -1,0 +1,32 @@
+# 원본/중간 데이터는 저장소에 포함하지 않는다 (용량·배포 권한 문제)
+data/
+*.csv
+*.parquet
+*.feather
+*.pkl
+*.zip
+*.pdf
+*.docx
+
+# 단, 결과 요약표는 저장소에 남긴다
+!outputs/backtest_summary.csv
+!outputs/backtest_detail.csv
+!outputs/rolling_check.csv
+!outputs/submitted_check.csv
+
+# 제출 파일(5월 예측값)은 필요 시 직접 생성
+outputs/submission_*.csv
+
+# Python
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+.venv/
+venv/
+
+# OS / 에디터
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/
+.idea/

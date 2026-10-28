@@ -1,0 +1,41 @@
+{
+  "source": "train.csv",
+  "total_rows": 27181440,
+  "null_counts": {
+    "module(equipment)": 0,
+    "timestamp": 0,
+    "localtime": 0,
+    "operation": 0,
+    "voltageR": 0,
+    "voltageS": 0,
+    "voltageT": 0,
+    "currentR": 0,
+    "currentS": 0,
+    "currentT": 0,
+    "activePower": 0,
+    "powerFactorR": 0,
+    "powerFactorS": 0,
+    "powerFactorT": 0,
+    "reactivePowerLagging": 0,
+    "accumActiveEnergy": 0
+  },
+  "negative_activePower_rows": 0,
+  "modules": [
+    "1(PM-3)",
+    "11(우측분전반1)",
+    "12(4호기)",
+    "13(3호기)",
+    "14(2호기)",
+    "15(예비건조기)",
+    "16(호이스트)",
+    "17(6호기)",
+    "18(우측분전반2)",
+    "2(L-1전등)",
+    "3(분쇄기(2))",
+    "4(분쇄기(1))",
+    "5(좌측분전반)"
+  ],
+  "dt_min": "2024-12-01 00:00:00",
+  "dt_max": "2025-03-31 23:00:00",
+  "elapsed_sec": 42.1
+}
