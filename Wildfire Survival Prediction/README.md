@@ -10,7 +10,7 @@ Rather than framing this as a binary classification task, we approached it as a 
 - 221 wildfire incidents (WiDS Datathon 2026)
 - 34 numerical input features based on initial 5-hour observations
 - Event rate: 31.2% (69 events) / Right-censored: 68.8% (152 cases)
-- Data available at: [WiDS Datathon 2026 on Kaggle](https://www.kaggle.com/competitions/widsdatathon2026)
+- Data available at: [WiDS Datathon 2026 on Kaggle](https://www.kaggle.com/competitions/WiDSWorldWide_GlobalDathon26/data)
 
 ## Approach
 
@@ -51,6 +51,22 @@ Weighted Brier = 0.3 × @24h + 0.4 × @48h + 0.3 × @72h
 | **Ensemble** | **0.9435** | **0.0156** | **0.9722** | **0.9632** |
 
 
+
+## Repository Structure
+| File | Description |
+|---|---|
+| `eda/wildfire-eda.ipynb` | EDA: Kaplan–Meier curves, log-rank tests, log-log plots for the proportional hazards check |
+| `lasso_cox_baseline.ipynb` | Lasso-Cox baseline: fold-wise preprocessing, penalizer search, competition metric implementation |
+| `random_survival_forest.ipynb` | Random Survival Forest: grid search and survival-function-based probability extraction |
+| `ensemble.ipynb` | Final submission: 0.8 × RSF + 0.2 × Cox blend with monotonicity correction |
+| `ensemble_oof_score.py` | OOF evaluation of the ensemble (uses the `*_oof_*.npy` files) |
+| `cox_oof_*.npy`, `rsf_oof_*.npy` | Out-of-fold predicted probabilities and risk scores |
+| `*_submission.csv` | Kaggle submission files for each model |
+| `22조_Final.pdf`, `Wildfire Survival Prediction presentation.pdf` | Final report and presentation slides |
+
+## How to Run
+The competition data is not included in this repository. Download `train.csv`, `test.csv`, `sample_submission.csv` and `metaData.csv` from the [Kaggle competition page](https://www.kaggle.com/competitions/WiDSWorldWide_GlobalDathon26/data) and place them in this folder before running the notebooks. The EDA notebook was run on Kaggle and reads the data from `/kaggle/input/`.
+
 ## Team
 | Name | Student ID |
 |---|---|
@@ -59,5 +75,3 @@ Weighted Brier = 0.3 × @24h + 0.4 × @48h + 0.3 × @72h
 | 손충기 | 2024100120 |
 
 2026 Spring Semester — Data Science Project, Team 22
-
-- Data available at: https://www.kaggle.com/competitions/WiDSWorldWide_GlobalDathon26/data

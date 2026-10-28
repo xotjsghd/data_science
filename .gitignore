@@ -1,0 +1,7 @@
+# Competition datasets are not redistributed; download them from Kaggle.
+train.csv
+test.csv
+sample_submission.csv
+metaData.csv
+.ipynb_checkpoints/
+__pycache__/
