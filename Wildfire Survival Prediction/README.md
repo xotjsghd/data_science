@@ -50,6 +50,15 @@ Weighted Brier = 0.3 × @24h + 0.4 × @48h + 0.3 × @72h
 | RSF | 0.9423 | 0.0143 | 0.9727 | 0.9623 |
 | **Ensemble** | **0.9435** | **0.0156** | **0.9722** | **0.9632** |
 
+### Leaderboard
+Final submission: Ensemble (0.8 × RSF + 0.2 × Cox)
+
+| Leaderboard | Rank | Percentile |
+|---|---|---|
+| Public | 855 / 1,754 teams | Top 49% |
+| **Private (final)** | **788 / 1,754 teams** | **Top 45%** |
+
+The final rank moved up 67 places from public to private.
 
 
 ## Repository Structure
