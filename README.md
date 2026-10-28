@@ -24,6 +24,8 @@
 | Random Survival Forest | 0.9727 | 0.9623 |
 | **Ensemble** | **0.9722** | **0.9632** |
 
+Kaggle 리더보드 최종 순위는 1,754팀 중 788위(Private, 상위 45%)였다. Public 기준 855위에서 67계단 올랐다.
+
 `Python` `Survival Analysis` `Lasso-Cox` `Random Survival Forest` → [자세히 보기](Wildfire%20Survival%20Prediction/)
 
 ---
