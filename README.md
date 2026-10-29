@@ -16,7 +16,7 @@
 - 산불이 대피구역에 "도달하느냐"가 아니라 **"언제 도달하느냐"** 를 다루는 생존분석 문제로 정의
 - 221건 중 68.8%가 중도절단(right-censored)된 데이터에서 Stratified 5-Fold OOF 검증
 - 생존함수에서 시점별 도달 확률 P(T≤H) = 1 − S(H)를 뽑고, 시점 간 단조성 보정
-- **Lasso-Cox**(해석 가능한 기준 모델) + **Random Survival Forest**(비선형) → 0.8 : 0.2 가중 앙상블
+- **Random Survival Forest**(비선형) 0.8 + **Lasso-Cox**(해석 가능한 기준 모델) 0.2 가중 앙상블
 
 | 모델 | OOF Hybrid Score | Public Score |
 |---|---:|---:|

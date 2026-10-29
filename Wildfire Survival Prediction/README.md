@@ -1,6 +1,13 @@
 # Wildfire Survival Prediction
 **WiDS Global Datathon 2026** | Data Science Project Team 22
 
+> **요약 (한국어)**
+> - **문제:** 산불 발생 후 초기 5시간 관측으로 12/24/48/72시간 안에 대피구역에 도달할 확률을 예측했다.
+> - **접근:** 사례의 68.8%가 관측 기간 안에 도달하지 않은 중도절단 데이터라, 분류가 아닌 생존분석 문제로 정의했다.
+> - **모델:** Lasso-Cox(해석 가능한 기준 모델)와 Random Survival Forest를 만들고, RSF 0.8 + Cox 0.2로 앙상블했다.
+> - **결과:** OOF Hybrid Score 0.972, Public Score 0.963, 1,754팀 중 Private 788위.
+> - **역할:** 팀 리더로 모델링 전체(문제 정의, 두 모델, 앙상블)를 맡았고, 팀원은 EDA와 보고서/발표를 맡았다.
+
 ## Overview
 This project predicts the cumulative probability of a wildfire reaching an evacuation zone within 12h, 24h, 48h, and 72h, using only the first 5 hours of wildfire observations.
 
@@ -60,6 +67,8 @@ Final submission: Ensemble (0.8 × RSF + 0.2 × Cox)
 
 The final rank moved up 67 places from public to private.
 
+Note: hyperparameters were selected with the same cross-validation used to report OOF scores, so OOF results are not an independent hold-out estimate.
+
 
 ## Repository Structure
 | File | Description |
@@ -75,6 +84,15 @@ The final rank moved up 67 places from public to private.
 
 ## How to Run
 The competition data is not included in this repository. Download `train.csv`, `test.csv`, `sample_submission.csv` and `metaData.csv` from the [Kaggle competition page](https://www.kaggle.com/competitions/WiDSWorldWide_GlobalDathon26/data) and place them in this folder before running the notebooks. The EDA notebook was run on Kaggle and reads the data from `/kaggle/input/`.
+
+- Libraries: pandas, numpy, scikit-learn, lifelines, scikit-survival, matplotlib (exact versions were not recorded)
+- Run order: `eda/wildfire-eda.ipynb` → `lasso_cox_baseline.ipynb` → `random_survival_forest.ipynb` → `ensemble.ipynb` → `ensemble_oof_score.py`
+
+## My Role (Team Leader, 홍태선)
+- Led the entire modeling part: framed the task as survival analysis, built the Lasso-Cox baseline, the Random Survival Forest, and the final ensemble (`lasso_cox_baseline.ipynb`, `random_survival_forest.ipynb`, `ensemble.ipynb`)
+- Chose survival analysis because 68.8% of cases were censored; a binary classifier would discard when (and whether) a fire arrived within the observation window
+- Ensemble weight: compared every RSF:Cox ratio from 1:9 to 9:1 on Kaggle and chose 8:2 by public score. RSF alone had a slightly higher OOF Hybrid (0.9727 vs 0.9722), but the blend scored higher on the public leaderboard
+- Teammates handled the EDA notebook and the final report/presentation
 
 ## Team
 | Name | Student ID |
