@@ -3,15 +3,15 @@
 
 > **요약**
 > - **문제:** 산불 발생 후 초기 5시간 관측으로 12/24/48/72시간 안에 대피구역에 도달할 확률을 예측했다.
-> - **접근:** 사례의 68.8%가 관측 기간 안에 도달하지 않은 중도절단 데이터라, 분류가 아닌 생존분석 문제로 정의했다.
+> - **접근:** 사례의 68.8%가 관측 기간 안에 도달하지 않은 중도절단 데이터라, 이 사례를 버리지 않고 반영하는 생존분석 모델을 썼다.
 > - **모델:** Lasso-Cox(해석 가능한 기준 모델)와 Random Survival Forest를 만들고, RSF 0.8 + Cox 0.2로 앙상블했다.
 > - **결과:** OOF Hybrid Score 0.972, Public Score 0.963, 1,754팀 중 Private 788위.
-> - **역할:** 팀 리더로 모델링 전체(문제 정의, 두 모델, 앙상블)와 최종 발표를 맡았고, 팀원은 EDA와 보고서를 맡았다.
+> - **역할:** 팀 리더로 모델링 전체(두 모델과 앙상블)와 최종 발표를 맡았고, 팀원은 EDA와 보고서를 맡았다.
 
 ## Overview
 This project predicts the cumulative probability of a wildfire reaching an evacuation zone within 12h, 24h, 48h, and 72h, using only the first 5 hours of wildfire observations.
 
-Rather than framing this as a binary classification task, we approached it as a **survival analysis (time-to-event)** problem — modeling *when* a fire is likely to arrive, not just *whether* it will.
+The task is a **survival analysis (time-to-event)** problem: most fires were not observed reaching the zone within the observation window (right-censored), so the models use these cases instead of discarding them and estimate *when* a fire is likely to arrive.
 
 ## Dataset
 - 221 wildfire incidents (WiDS Datathon 2026)
@@ -89,8 +89,8 @@ The competition data is not included in this repository. Download `train.csv`, `
 - Run order: `eda/wildfire-eda.ipynb` → `lasso_cox_baseline.ipynb` → `random_survival_forest.ipynb` → `ensemble.ipynb` → `ensemble_oof_score.py`
 
 ## My Role (Team Leader, 홍태선)
-- Led the entire modeling part: framed the task as survival analysis, built the Lasso-Cox baseline, the Random Survival Forest, and the final ensemble (`lasso_cox_baseline.ipynb`, `random_survival_forest.ipynb`, `ensemble.ipynb`)
-- Chose survival analysis because 68.8% of cases were censored; a binary classifier would discard when (and whether) a fire arrived within the observation window
+- Led the entire modeling part: built the Lasso-Cox baseline, the Random Survival Forest, and the final ensemble (`lasso_cox_baseline.ipynb`, `random_survival_forest.ipynb`, `ensemble.ipynb`)
+- Studied survival analysis for this project and used models that keep the censored cases (68.8% of the data) instead of discarding them
 - Ensemble weight: compared different RSF:Cox blending ratios and chose 8:2 by public score. RSF alone had a slightly higher OOF Hybrid (0.9727 vs 0.9722), but the blend scored higher on the public leaderboard
 - Gave the final presentation; teammates handled the EDA notebook and the final report
 
