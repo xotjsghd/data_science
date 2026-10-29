@@ -1,7 +1,7 @@
 # Wildfire Survival Prediction
 **WiDS Global Datathon 2026** | Data Science Project Team 22
 
-> **요약 (한국어)**
+> **요약**
 > - **문제:** 산불 발생 후 초기 5시간 관측으로 12/24/48/72시간 안에 대피구역에 도달할 확률을 예측했다.
 > - **접근:** 사례의 68.8%가 관측 기간 안에 도달하지 않은 중도절단 데이터라, 분류가 아닌 생존분석 문제로 정의했다.
 > - **모델:** Lasso-Cox(해석 가능한 기준 모델)와 Random Survival Forest를 만들고, RSF 0.8 + Cox 0.2로 앙상블했다.
