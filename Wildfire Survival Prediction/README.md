@@ -91,7 +91,7 @@ The competition data is not included in this repository. Download `train.csv`, `
 ## My Role (Team Leader, 홍태선)
 - Led the entire modeling part: framed the task as survival analysis, built the Lasso-Cox baseline, the Random Survival Forest, and the final ensemble (`lasso_cox_baseline.ipynb`, `random_survival_forest.ipynb`, `ensemble.ipynb`)
 - Chose survival analysis because 68.8% of cases were censored; a binary classifier would discard when (and whether) a fire arrived within the observation window
-- Ensemble weight: compared every RSF:Cox ratio from 1:9 to 9:1 on Kaggle and chose 8:2 by public score. RSF alone had a slightly higher OOF Hybrid (0.9727 vs 0.9722), but the blend scored higher on the public leaderboard
+- Ensemble weight: compared different RSF:Cox blending ratios and chose 8:2 by public score. RSF alone had a slightly higher OOF Hybrid (0.9727 vs 0.9722), but the blend scored higher on the public leaderboard
 - Gave the final presentation; teammates handled the EDA notebook and the final report
 
 ## Team
